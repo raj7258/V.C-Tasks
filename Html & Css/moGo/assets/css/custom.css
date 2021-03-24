@@ -1,6 +1,46 @@
 a:hover {
   text-decoration: none;
 }
+.img-fluids {
+  width: 100%;
+}
+header {
+  width: 100%;
+  position: fixed;
+  background-color: rgba(243, 138, 129, 1);
+  z-index: 9;
+}
+header ul li a p:hover {
+  color: #fce38a;
+  text-decoration: underline;
+}
+header i:hover {
+  color: #fce38a;
+}
+header ul li a p {
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+  border-bottom: 3px solid transparent;
+  text-align: center;
+  margin: 0;
+}
+.menu-bar {
+  color: white;
+}
+header ul li a {
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+  border-bottom: 3px solid transparent;
+  text-align: center;
+  margin-right: 15px;
+}
+header ul li a:hover {
+  color: #ffffff;
+}
 .bg-header {
   padding-bottom: 64px;
   background-image: url(../images/banner.png);
@@ -8,53 +48,14 @@ a:hover {
   background-size: auto;
   background-repeat: no-repeat;
 }
-.header-nav {
-  width: 100%;
-  margin: 0px;
-  padding: 0px 0px 12px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background: rgba(241, 114, 114, 0.96);
-  overflow: hidden;
-  z-index: 9;
-}
-.nav-links {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /* align-items: flex-end; */
-  justify-content: flex-end;
-}
-.nav-links li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  margin-top: 10px;
-}
-.nav-links li a {
-  list-style: none;
-  color: white;
-  font-size: 14px;
-  color: #ffffff;
-  font-weight: 400;
-  font-family: "Montserrat";
-  text-align: center;
-  margin: 0 13px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.nav-links li a:hover {
-  color: rgb(252, 227, 138);
-  text-decoration: none;
-  padding-bottom: 5px;
-  border-bottom: 2px solid;
-}
 .logo {
-  width: 70px;
-  padding-top: 14px;
-  align-items: center;
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Montserrat";
+}
+.logo:hover {
+  color: #ffffff;
 }
 .main-heading {
   margin-top: 10px;
@@ -66,7 +67,6 @@ a:hover {
   font-weight: 700;
   font-family: Montserrat;
   text-align: center;
-  width: 845px;
   margin: 38px auto;
   text-transform: uppercase;
 }
@@ -82,6 +82,9 @@ a:hover {
   border-top: 3px solid white;
   width: 60px;
   margin: 0 auto;
+}
+.x1 {
+  padding: 25px;
 }
 .main-heading button {
   font-size: 14px;
@@ -177,6 +180,7 @@ h3 {
   text-align: center;
   text-transform: uppercase;
 }
+
 .section-headings h4 {
   width: 56px;
   border-top: 3px solid #f38181;
@@ -186,7 +190,6 @@ h3 {
   border-left: 0.5px solid #b5eae0;
 }
 .about {
-  width: 960px;
   font-size: 15px;
   line-height: 24px;
   color: #999999;
@@ -194,7 +197,7 @@ h3 {
   font-family: "Roboto";
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 }
 .about-us {
   margin: 60px auto;
@@ -212,9 +215,11 @@ h3 {
   padding: 0px;
   top: 0;
   bottom: 0;
-  left: 15px;
-  right: -88px;
-  width: 300px;
+  left: 0;
+  right: 0;
+  /* left: 15px;
+  right: -88px; */
+  /* width: 300px; */
   height: auto;
   opacity: 0;
   transition: 0.5s ease;
@@ -237,7 +242,7 @@ a:hover .overlay {
 .over-icons {
   margin: auto;
   margin-top: 113px;
-  margin-left: 141px;
+  margin-left: 152px;
   color: #ffffff;
 }
 .overlay p {
@@ -282,7 +287,7 @@ a:hover .overlay {
   text-transform: uppercase;
 }
 .service-banner p {
-  width: 290px;
+  /* width: 290px; */
   height: 20px;
   font-size: 15px;
   line-height: 24px;
@@ -317,8 +322,9 @@ a:hover .overlay {
   font-family: "Montserrat";
   margin-left: 4px;
 }
+
 .collapse-para {
-  width: 530px;
+  width: 514px;
   height: 222px;
   font-size: 15px;
   line-height: 24px;
@@ -542,7 +548,6 @@ a:hover .overlay-2 {
 .clients {
   margin: 0 auto;
   background-image: url(../images/happy-client/bg-happy-client.jpg);
-  height: 830px;
   padding-top: 35px;
   background-repeat: no-repeat;
   background-position: center;
@@ -819,12 +824,12 @@ a:hover .overlay-2 {
   margin-left: 50px;
 }
 .custom-div {
-  height: 770px;
+  max-height: 770px;
   max-width: 1519px;
   margin: 0 auto;
 }
 .custom-row {
-  height: 770px;
+  max-height: 770px;
   /* width: 100%; */
   display: flex;
   margin: 0 auto;
@@ -848,12 +853,12 @@ a:hover .overlay-2 {
 .overlay-3 {
   position: absolute;
   padding: 0px;
-  top: -179px;
+  top: -142px;
   bottom: 0;
   left: 0px;
   right: -63px;
   width: 380px;
-  height: 386px;
+  height: 310px;
   opacity: 0;
   transition: 0.5s ease;
   background: linear-gradient(
@@ -867,7 +872,7 @@ a:hover .overlay-2 {
 }
 .custom-flex-gallery {
   text-align: center;
-  margin-top: 150px;
+  margin-top: 114px;
 }
 .custom-flex-gallery h4 {
   font-size: 14px;
@@ -891,12 +896,12 @@ a:hover .overlay-2 {
 .overlay-4 {
   position: absolute;
   padding: 0px;
-  top: -373px;
+  top: -295px;
   bottom: 0;
   left: 0px;
   right: -63px;
   width: 380px;
-  height: 772px;
+  height: 617px;
   opacity: 0;
   transition: 0.5s ease;
   background: linear-gradient(
@@ -910,7 +915,7 @@ a:hover .overlay-2 {
 }
 .custom2-flex-gallery {
   text-align: center;
-  margin-top: 345px;
+  margin-top: 262px;
 }
 .custom2-flex-gallery h4 {
   font-size: 14px;
@@ -990,8 +995,1184 @@ a:hover .overlay-2 {
   border: 1px solid #e5e5e5;
   margin-left: -1px;
 }
-/* .btn.collapsed i {
-  transform: rotate(180deg);
-  position: absolute;
-  right: 4%;
+@media (max-width: 1441px) {
+  .overlay-3 {
+    top: -133px;
+    height: 292px;
+    width: 356px;
+  }
+  .overlay-4 {
+    top: -276px;
+    height: 581px;
+    width: 356px;
+  }
+}
+
+@media (max-width: 1367px) {
+  .overlay-3 {
+    width: 341px;
+  }
+  .overlay-4 {
+    width: 341px;
+  }
+}
+
+@media (max-width: 1281px) {
+  .custom-flex-gallery {
+    text-align: center;
+    margin-top: 80px;
+  }
+  .custom2-flex-gallery {
+    text-align: center;
+    margin-top: 206px;
+  }
+  .overlay-3 {
+    top: -115px;
+    height: 258px;
+    width: 316px;
+  }
+  .overlay-4 {
+    top: -243px;
+    height: 514px;
+    width: 316px;
+  }
+}
+
+/* Ipad Pro */
+@media (max-width: 1025px) {
+  /* .custom-div {
+    max-width: 1025px;
 } */
+  .main-heading h1 {
+    font-size: 60px;
+  }
+  .main-heading h2 {
+    font-size: 110px;
+  }
+  .service-banner h3 {
+    font-size: 13px;
+  }
+  /* .unique-design {
+    height: 983px;
+  } */
+  .service-banner p {
+    /* width: 170px; */
+    /* height: 20px; */
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .tablet {
+    margin-left: 235px;
+  }
+  .what-weDo img {
+    width: 460px;
+  }
+  .collapse-para {
+    width: 422px;
+    font-size: 12px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 223px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 256px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 244px;
+  }
+  /* .review-box {
+    margin-left: 84px;
+  } */
+  .team-member img {
+    width: 295px;
+    height: auto;
+  }
+  .review-details {
+    width: 437px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .reviewer-1-image img {
+    width: 160px;
+    height: 160px;
+    margin-right: 19px;
+    margin-top: -56px;
+  }
+  .review-para {
+    margin-top: -25px;
+    margin-left: 15px;
+  }
+  .clients-info p + p {
+    width: 239px;
+    height: 105px;
+    font-size: 13px;
+    line-height: 23px;
+  }
+  .about {
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .review-image img {
+    margin-top: -23px;
+  }
+  .review-line {
+    margin-top: 12px;
+    width: 40px;
+  }
+  .latest-blog-img {
+    width: 300px;
+  }
+  .Story-banner h3 {
+    margin-top: 10px;
+    margin-left: 12px;
+    width: auto;
+    padding-bottom: 10px;
+    font-size: 10px;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+  .details {
+    width: 300px;
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .Blogs p:first-of-type {
+    font-size: 6px;
+    line-height: 12px;
+    margin: 0;
+    margin-top: 9px;
+  }
+  .blog-div img {
+    width: 100px;
+    height: auto;
+  }
+  .review-box-2 {
+    margin-left: 152px;
+  }
+  .text-box {
+    width: 171px;
+  }
+  .Subscribe-btn {
+    font-size: 10px;
+    width: 100px;
+    padding-top: 5px;
+    padding-left: 19px;
+  }
+  .review-details {
+    font-size: 16px;
+  }
+  .insta-div img {
+    width: 70px;
+    height: auto;
+  }
+  .overlay-2 {
+    width: 297px;
+    height: 364px;
+  }
+  .team-social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 11pc;
+  }
+  .overlay-3 {
+    width: 255px;
+  }
+  .overlay-4 {
+    width: 256px;
+  }
+  .review-box-2 {
+    margin-left: 157px;
+  }
+}
+
+@media (max-width: 769px) {
+  /* .navbar-nav .nav-link {
+    padding: 0 292px;
+    padding-bottom: 10px;
+  } */
+  /* .custom-div {
+    max-width: 769px;
+} */
+  .main-heading h1 {
+    font-size: 55px;
+  }
+  .main-heading h2 {
+    font-size: 50px;
+    line-height: 100px;
+    margin: 38px auto;
+  }
+  .about {
+    font-size: 17px;
+    line-height: 22px;
+  }
+  .about-us-img {
+    width: 200px;
+    height: auto;
+  }
+  .overlay {
+    width: 200px;
+    height: auto;
+  }
+  .clients-banner h2 {
+    font-size: 40px;
+  }
+  .clients-banner p {
+    font-size: 11px;
+  }
+  .service-banner div + div {
+    padding-bottom: 70px;
+  }
+
+  .tablet {
+    width: 890px;
+    margin-left: 105px;
+  }
+
+  .what-weDo img {
+    width: 334px;
+    /* height: auto; */
+  }
+  .collapse-para {
+    width: 304px;
+    font-size: 12px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 105px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 136px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 124px;
+  }
+  .review-box {
+    margin-left: 70px;
+  }
+  .team-member img {
+    width: 220px;
+    height: auto;
+  }
+  .overlay-2 {
+    width: 220px;
+    height: 273px;
+  }
+  .team-social {
+    margin-top: 8pc;
+  }
+  .brand-img img {
+    width: 100px;
+    height: auto;
+  }
+  .overlay-3 {
+    width: 192px;
+  }
+  .overlay-4 {
+    width: 192px;
+  }
+  .review-box-2 {
+    margin-left: 70px;
+  }
+  .reviewer-1-image img {
+    width: 100px;
+    height: auto;
+    margin-top: -36px;
+  }
+  .review-para {
+    margin-top: -26px;
+    margin-left: 4px;
+  }
+  .clients-info p + p {
+    width: 150px;
+    font-size: 13px;
+    line-height: 23px;
+  }
+  .clients-info {
+    margin-bottom: 25px;
+  }
+
+  .clients {
+    padding: 35px 0;
+  }
+  .latest-blog-img {
+    width: 200px;
+    height: auto;
+  }
+  .details {
+    width: 200px;
+  }
+  .social-icons li {
+    margin-right: 10px;
+  }
+  .text-box {
+    width: 140px;
+  }
+  .Subscribe-btn {
+    width: 93px;
+    padding-left: 16px;
+  }
+  .insta-div img {
+    width: 47px;
+    height: 84px;
+  }
+}
+@media (max-width: 541px) {
+  .brand-img {
+    width: 50%;
+  }
+  .section-headings h2 {
+    margin-top: 30px;
+  }
+  .number-banner {
+    padding: 17px 0;
+  }
+  .service-section {
+    margin: 25px 0;
+  }
+  .horizontal-divider {
+    margin: 30px 0;
+  }
+  .team-member img {
+    width: 230px;
+    height: auto;
+  }
+  .latest-blog-img {
+    width: 285px;
+    height: auto;
+  }
+  /* .navbar-nav .nav-link {
+    padding: 0 202px;
+    padding-bottom: 10px;
+  } */
+  .reviewer-1-image img {
+    width: 100px;
+    height: auto;
+    margin-top: -57px;
+  }
+  .main-heading h1 {
+    font-size: 55px;
+    margin-top: 13px;
+  }
+  .main-heading h2 {
+    font-size: 50px;
+    line-height: 80px;
+    margin: 38px auto;
+  }
+  .progressBarContainer {
+    margin-left: 9px;
+  }
+  .progressBarContainer h3 {
+    font-size: 8px;
+  }
+  .about-us {
+    margin: 60px auto;
+    text-align: center;
+  }
+  .about-us-img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .tablet {
+    width: 90%;
+    height: auto;
+    margin-left: 51px;
+    margin-top: 54px;
+  }
+
+  .unique-design {
+    margin-top: 0px;
+    height: 655px;
+  }
+  .what-weDo {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 285px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 318px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 304px;
+  }
+
+  .collapse-para {
+    width: 483px;
+  }
+  .clients-banner h2 {
+    font-size: 20px;
+  }
+
+  .clients-banner p {
+    font-size: 8px;
+  }
+  .review-details {
+    width: 279px;
+    font-size: 9px;
+    line-height: 12px;
+  }
+  .review-box-2 {
+    margin-left: 64px;
+  }
+  .clients-info p + p {
+    width: 296px;
+    font-size: 13px;
+    line-height: 23px;
+  }
+  .review-details {
+    width: 271px;
+    font-size: 9px;
+    line-height: 12px;
+  }
+  .reviewer-name {
+    font-size: 13px;
+  }
+  .review-image img {
+    margin-top: -28px;
+  }
+
+  .review-image img {
+    width: 73px;
+    height: 73px;
+    margin-right: 33px;
+  }
+  .team-member {
+    text-align: center;
+  }
+  .Brands div {
+    text-align: center;
+  }
+  .Story-banner {
+    text-align: center;
+  }
+  .story-views {
+    margin-right: 16px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+  .footer-details {
+    text-align: center;
+  }
+  .details {
+    width: 435px;
+    margin: 0 auto;
+  }
+  .follwer {
+    margin-left: 200px;
+  }
+  .Subscribe-btn {
+    width: 113px;
+    padding-left: 24px;
+  }
+  .socials p {
+    margin-left: 121px;
+  }
+  .input-group {
+    margin-left: 85px;
+    width: 73%;
+  }
+  .Instagram h2 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .insta-img-div {
+    margin-left: 0;
+    text-align: center;
+  }
+  .text-box {
+    width: 212px;
+  }
+  .Instagram h3 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .nav-links li a {
+    font-size: 7px;
+  }
+  .nav-links {
+    justify-content: flex-start;
+  }
+  .Blogs h3 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .Blogs p:first-of-type {
+    margin-top: 9px;
+  }
+  .Blogs p:first-of-type {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .insta-div img {
+    width: 80px;
+    height: 84px;
+  }
+  .overlay-3 {
+    position: absolute;
+    padding: 0px;
+    top: -42px;
+    bottom: 0;
+    left: 0px;
+    right: -63px;
+    width: 135px;
+    height: 111px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background: linear-gradient(
+      to top,
+      rgba(251, 227, 137, 0.8),
+      rgba(243, 138, 129, 1)
+    );
+  }
+  .custom-flex-gallery {
+    text-align: center;
+    margin-top: 18px;
+  }
+  .nav-links {
+    justify-content: center;
+  }
+  .nav-links li a {
+    font-size: 11px;
+  }
+  .overlay-4 {
+    position: absolute;
+    padding: 0px;
+    top: -96px;
+    bottom: 0;
+    left: 0px;
+    right: -9px;
+    width: 135px;
+    height: 220px;
+    opacity: 0;
+  }
+  .custom2-flex-gallery {
+    text-align: center;
+    margin-top: 52px;
+  }
+  .overlay {
+    left: 170px;
+    right: -88px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background: linear-gradient(
+      to top,
+      rgba(251, 227, 137, 0.8),
+      rgba(243, 138, 129, 1)
+    );
+  }
+  .overlay-2 {
+    position: absolute;
+    padding: 0px;
+    top: 0;
+    bottom: 0;
+    left: 159px;
+    right: -71px;
+    opacity: 0;
+    transition: 0.5s ease;
+    box-shadow: 10px 10px 0px #95e1d3;
+    background: linear-gradient(
+      to top,
+      rgba(251, 227, 137, 0.8),
+      rgba(243, 138, 129, 1)
+    );
+  }
+  .over-icons {
+    margin: auto;
+    margin-top: 50px;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 415px) {
+  /* .navbar-nav .nav-link {
+    padding: 0px 140px;
+    padding-bottom: 10px;
+  } */
+  .what-weDo img {
+    width: 360px;
+    height: auto;
+  }
+  .c1 {
+    width: 80px;
+    height: 80px;
+  }
+  .main-heading h2 {
+    font-size: 50px;
+    line-height: 80px;
+    margin: 38px auto;
+  }
+  .progressBarContainer {
+    margin-left: 9px;
+  }
+  .progressBarContainer h3 {
+    font-size: 8px;
+  }
+  .about-us {
+    margin: 60px auto;
+    text-align: center;
+  }
+  .about-us-img {
+    width: 285px;
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  .tablet {
+    width: 90%;
+    height: auto;
+    margin-left: 34px;
+    margin-top: 54px;
+  }
+
+  .unique-design {
+    height: 549px;
+  }
+  .what-weDo {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 155px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 189px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 175px;
+  }
+
+  .collapse-para {
+    width: 354px;
+  }
+  .clients-banner h2 {
+    font-size: 20px;
+  }
+
+  .clients-banner p {
+    font-size: 6px;
+  }
+  .review-details {
+    width: 131px;
+    font-size: 9px;
+    line-height: 12px;
+  }
+  .review-details {
+    width: 131px;
+    font-size: 9px;
+    line-height: 12px;
+  }
+  .reviewer-name {
+    font-size: 13px;
+  }
+  .review-image img {
+    margin-top: -28px;
+  }
+
+  .review-image img {
+    width: 73px;
+    height: 73px;
+    margin-right: 33px;
+  }
+  .team-member {
+    text-align: center;
+  }
+  .Brands div {
+    text-align: center;
+  }
+  .Story-banner {
+    text-align: center;
+  }
+  .story-views {
+    margin-right: 16px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+  .footer-details {
+    text-align: center;
+  }
+  .details {
+    width: 330px;
+    margin: 0 auto;
+  }
+  .latest-blog-img {
+    width: 345px;
+    height: auto;
+  }
+  .follwer {
+    margin-left: 132px;
+  }
+  .socials p {
+    margin-left: 59px;
+  }
+  .input-group {
+    margin-left: 74px;
+    width: 73%;
+  }
+  .Instagram h2 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .insta-img-div {
+    margin-left: 0;
+    text-align: center;
+  }
+  .Instagram h3 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .nav-links li a {
+    font-size: 7px;
+  }
+  .nav-links {
+    justify-content: flex-start;
+  }
+  .Blogs h3 {
+    padding-left: 0;
+    text-align: center;
+  }
+  .Blogs p:first-of-type {
+    margin-top: 9px;
+  }
+  .Blogs p:first-of-type {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .insta-div img {
+    width: 80px;
+    height: 84px;
+  }
+  .overlay-3 {
+    position: absolute;
+    padding: 0px;
+    top: -28px;
+    bottom: 0;
+    left: 0px;
+    right: -39px;
+    width: 102px;
+    height: 84px;
+  }
+  .custom-flex-gallery {
+    text-align: center;
+    margin-top: 0px;
+  }
+  .custom-flex-gallery h4 {
+    font-size: 8px;
+    color: #ffffff;
+    font-weight: 400;
+    font-family: "Montserrat";
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .custom-flex-gallery p {
+    font-size: 10px;
+    line-height: 24px;
+    color: #ffffff;
+    font-weight: 300;
+    font-style: italic;
+    font-family: "Roboto";
+    text-align: center;
+  }
+  .overlay-4 {
+    width: 104px;
+  }
+  .overlay {
+    left: 116px;
+    right: -88px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background: linear-gradient(
+      to top,
+      rgba(251, 227, 137, 0.8),
+      rgba(243, 138, 129, 1)
+    );
+  }
+  .overlay-2 {
+    position: absolute;
+    padding: 0px;
+    top: 0;
+    bottom: 0;
+    left: 96px;
+    right: -71px;
+    opacity: 0;
+    transition: 0.5s ease;
+    box-shadow: 10px 10px 0px #95e1d3;
+    background: linear-gradient(
+      to top,
+      rgba(251, 227, 137, 0.8),
+      rgba(243, 138, 129, 1)
+    );
+  }
+  .over-icons {
+    margin: auto;
+    margin-top: 50px;
+    color: #ffffff;
+  }
+  .clients-info p + p {
+    width: 183px;
+    font-size: 13px;
+    line-height: 23px;
+  }
+  .text-box {
+    width: 130px;
+  }
+  .Subscribe-btn {
+    width: 97px;
+    padding-left: 19px;
+  }
+}
+
+@media (max-width: 376px) {
+  /* .navbar-nav .nav-link {
+    padding: 0px 113px;
+    padding-bottom: 10px;
+  } */
+  .number-banner {
+    border-right: 0.5px solid #b5eae0;
+    padding: 20px 0;
+    margin-right: 2px;
+  }
+  .c1 {
+    width: 80px;
+    height: 80px;
+  }
+  .clients-info p + p {
+    width: 147px;
+    font-size: 13px;
+    line-height: 23px;
+  }
+  .collapse-para {
+    width: 319px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 121px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 152px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 139px;
+  }
+  .review-box {
+    margin-left: 58px;
+  }
+  .review-box-2 {
+    margin-left: 47px;
+  }
+  .unique-design {
+    height: 520px;
+  }
+  .nav-links li a {
+    font-size: 9px;
+    margin: 0px 8px;
+  }
+  .overlay-3 {
+    width: 93px;
+  }
+}
+
+@media (max-width: 361px) {
+  .details {
+    width: 330px;
+    margin: 0 auto;
+  }
+  .follwer {
+    margin-left: 110px;
+  }
+  .text-box {
+    width: 131px;
+  }
+  .Subscribe-btn {
+    width: 103px;
+    padding-left: 18px;
+  }
+  .about {
+    margin-bottom: 30px;
+  }
+  .main-heading h1 {
+    font-size: 38px;
+    margin-top: 13px;
+  }
+  .clients-banner p {
+    font-size: 5px;
+  }
+  .number-banner {
+    padding: 10px 0;
+    padding-top: 19px;
+  }
+  .service-banner h3 {
+    font-size: 11px;
+  }
+  .service-banner p {
+    font-size: 11px;
+    line-height: 20px;
+  }
+  .main-heading h2 {
+    font-size: 40px;
+    width: 321px;
+  }
+
+  .section-headings h2 {
+    font-size: 18px;
+  }
+  .section-headings h3 {
+    font-size: 23px;
+  }
+  .collapse-para {
+    width: 303px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 105px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 136px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 123px;
+  }
+  .review-box {
+    margin-left: 56px;
+  }
+  .review-image img {
+    margin-right: 17px;
+  }
+  .overlay {
+    left: 80px;
+  }
+  .overlay-2 {
+    left: 70px;
+  }
+  .overlay-3 {
+    width: 89px;
+  }
+  .overlay-4 {
+    width: 91px;
+  }
+  .review-box-2 {
+    margin-left: 36px;
+  }
+  .clients-info p + p {
+    width: 120px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .unique-design {
+    height: 487px;
+  }
+  .socials p {
+    margin-left: 37px;
+  }
+  .input-group {
+    margin-left: 49px;
+  }
+  .tablet {
+    margin-top: 50px;
+  }
+  .about-us-img {
+    margin-bottom: 30px;
+  }
+  .what-weDo img {
+    width: 317px;
+    height: auto;
+  }
+  .nav-links li a {
+    margin: 0px 7px;
+  }
+  .team-member img {
+    width: 230px;
+    height: auto;
+  }
+  .latest-blog-img {
+    width: 285px;
+    height: auto;
+  }
+  .Brands div {
+    padding: 25px 0;
+  }
+}
+
+@media (max-width: 321px) {
+  .follwer {
+    margin-left: 97px;
+  }
+  .details {
+    width: 300px;
+    margin: 0 auto;
+  }
+  /* .navbar-nav .nav-link {
+    padding: 0px 100px;
+    padding-bottom: 10px;
+  } */
+  .socials p {
+    margin-left: 25px;
+  }
+  .unique-design {
+    height: 454px;
+  }
+  .main-heading h2 {
+    font-size: 40px;
+    width: auto;
+  }
+  .progressBarContainer h3 {
+    font-size: 7px;
+  }
+  .tablet {
+    margin-left: 24px;
+    margin-top: 50px;
+  }
+  .overlay {
+    left: 60px;
+    width: 200px;
+    height: 135px;
+  }
+  .what-weDo img {
+    width: 300px;
+    height: auto;
+  }
+  .collapse-para {
+    width: 263px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 65px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 96px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 84px;
+  }
+  .review-box {
+    margin-left: 35px;
+  }
+  .overlay-2 {
+    left: 50px;
+  }
+  .team-social i {
+    margin-left: -2px;
+  }
+  .overlay-3 {
+    width: 80px;
+  }
+  .overlay-4 {
+    width: 80px;
+  }
+  .nav-links li a {
+    margin: 0px 5px;
+  }
+  .reviewer-1-image img {
+    width: 74px;
+    margin-right: 10px;
+    /* height: auto; */
+    margin-top: -26px;
+  }
+  .clients-info p + p {
+    width: auto;
+    font-size: 9px;
+    line-height: 12px;
+  }
+  .input-group {
+    margin-left: 41px;
+  }
+  .Brands div {
+    padding: 25px 0;
+  }
+}
+
+@media (max-width: 281px) {
+  /* .navbar-nav .nav-link {
+    padding: 6px 73px;
+    padding-bottom: 10px;
+  } */
+  .details {
+    width: 237px;
+    margin: 0 auto;
+  }
+  .about-us-img {
+    width: 233px;
+    height: auto;
+    margin-bottom: 25px;
+  }
+  .latest-blog-img {
+    width: 245px;
+    height: auto;
+  }
+  .overlay {
+    left: 40px;
+  }
+  .socials p {
+    margin-left: 12px;
+  }
+  .follwer {
+    margin-left: 84px;
+  }
+  .overlay-3 {
+    width: 69px;
+  }
+  .input-group {
+    margin-left: 18px;
+  }
+  .what-weDo img {
+    width: 233px;
+    height: auto;
+  }
+  .review-image img {
+    width: 38px;
+    height: 35px;
+    margin-right: 17px;
+    margin-top: 0px;
+  }
+  .review-details {
+    width: 90px;
+    font-size: 9px;
+    line-height: 12px;
+  }
+  .collapse-para {
+    width: 223px;
+  }
+  .accordian-btn-1 i {
+    padding-left: 24px;
+  }
+  .accordian-btn-2 i {
+    padding-left: 56px;
+  }
+  .accordian-btn-3 i {
+    padding-left: 43px;
+  }
+  .x1 {
+    padding: 0px;
+  }
+  .nav-links li a {
+    margin: 0px 5px;
+    font-size: 7px;
+  }
+  .progressBarContainer h3 {
+    font-size: 6px;
+  }
+  .clients-banner p {
+    font-size: 6px;
+  }
+  .number-banner:nth-child(1) h2 {
+    margin-top: 7px;
+  }
+  .unique-design {
+    height: 421px;
+  }
+  .clients-info p + p {
+    line-height: 10px;
+  }
+  .Brands div {
+    padding: 25px 0;
+  }
+  .c1 {
+    width: 50px;
+    height: 50px;
+  }
+}
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}  */

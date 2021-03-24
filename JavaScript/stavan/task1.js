@@ -4,14 +4,12 @@
 
 // There should be User Input which defines the number of records [n]  to store. Then the user must fill the information which is required for the data for the "n" records.
 // The values of data should be stored in UPPERCASE, lowercase, Title Case format. There should be a key which holds a function which returns output in console. The data should be sorted based on any field that you prefer. (Ascending & Descending order)
-// The User should be able to search for the records and should give the desired output. 
+// The User should be able to search for the records and should give the desired output.
 
 // Output:
 // 1) Display the Records as the User have Filled (No Filteration or Sort)
 // 2) Display the records sorted in ascending order and descending order
 // 3) Display the records filtered with the search input
-
-
 
 function Task1() {
   let len = parseInt(prompt("Enter The Length of Array"));
@@ -55,6 +53,7 @@ function Task1() {
     return 0;
   });
   console.log("Sorted Array By Name ", sortedData);
+  console.log("original Data", data);
 
   // Search By LastName
   let filteredItem = [];

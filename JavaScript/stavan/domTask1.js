@@ -1,5 +1,7 @@
 //Form Submit
 let data = [];
+let j = 1;
+let update = false;
 
 if (localStorage.getItem("data") === null) {
   data = [];
@@ -14,26 +16,76 @@ if (localStorage.getItem("data") === null) {
   }
 }
 
+//Update Row
+let refrenceToTd;
+function updateRow(e) {
+  update = true;
+  refrenceToTd = e;
+  rowNumber = e.parentNode.parentNode.rowIndex;
+  let tableCells = document.getElementById("table1").rows[rowNumber].cells;
+
+  document.getElementById("name").value = tableCells[1].innerHTML;
+  document.getElementById("age").value = tableCells[2].innerHTML;
+  document.getElementById("city").value = tableCells[3].innerHTML;
+  document.getElementById("state").value = tableCells[4].innerHTML;
+}
+
 function submitForm(e) {
   e.preventDefault();
-  const name = document.getElementById("name").value.toLowerCase();
-  const age = document.getElementById("age").value;
-  const city = document.getElementById("city").value.toLowerCase();
-  const state = document.getElementById("state").value.toLowerCase();
-  document.getElementById("form").reset();
+  if (update === true) {
+    rowNumber = refrenceToTd.parentNode.parentNode.rowIndex;
+    const id = refrenceToTd.parentNode.parentNode.cells[0].innerHTML;
 
-  let obj = {
-    id: Math.floor(Math.random() * (999 - 100 + 1) + 100),
-    name,
-    age: +age,
-    city,
-    state,
-  };
-  document.getElementById("tb1").style.display = "block";
-  addingRow(obj, data.length, "table1");
-  data.push(obj);
-  console.log(data);
-  getDateFromLocalStorage();
+    let tableCells = document.getElementById("table1").rows[rowNumber].cells;
+    tableCells[0].innerHTML = +id;
+    tableCells[1].innerHTML = document
+      .getElementById("name")
+      .value.toLowerCase();
+    tableCells[2].innerHTML = document.getElementById("age").value;
+    tableCells[3].innerHTML = document
+      .getElementById("city")
+      .value.toLowerCase();
+    tableCells[4].innerHTML = document
+      .getElementById("state")
+      .value.toLowerCase();
+    document.getElementById("form").reset();
+
+    const name = tableCells[1].innerHTML;
+    const age = tableCells[2].innerHTML;
+    const city = tableCells[3].innerHTML;
+    const state = tableCells[4].innerHTML;
+
+    let obj = {
+      id: +id,
+      name,
+      age,
+      city,
+      state,
+    };
+    data.splice(rowNumber - 1, 1, obj);
+    console.log("updated Object=", data);
+    update = false;
+    getDateFromLocalStorage();
+  } else {
+    const name = document.getElementById("name").value.toLowerCase();
+    const age = document.getElementById("age").value;
+    const city = document.getElementById("city").value.toLowerCase();
+    const state = document.getElementById("state").value.toLowerCase();
+    document.getElementById("form").reset();
+
+    let obj = {
+      id: Math.floor(Math.random() * (999 - 100 + 1) + 100),
+      name,
+      age,
+      city,
+      state,
+    };
+    document.getElementById("tb1").style.display = "block";
+    addingRow(obj, data.length, "table1");
+    data.push(obj);
+    console.log(data);
+    getDateFromLocalStorage();
+  }
 }
 
 //Delete Row
@@ -48,67 +100,17 @@ function deleteRow(e) {
   getDateFromLocalStorage();
 }
 
-//Update Row
-let refrenceToTd;
-function updateRow(e) {
-  refrenceToTd = e;
-  rowNumber = e.parentNode.parentNode.rowIndex;
-  let tableCells = document.getElementById("table1").rows[rowNumber].cells;
-
-  document.getElementById("name1").value = tableCells[1].innerHTML;
-  document.getElementById("age1").value = tableCells[2].innerHTML;
-  document.getElementById("city1").value = tableCells[3].innerHTML;
-  document.getElementById("state1").value = tableCells[4].innerHTML;
-}
-function submitForm2(e) {
-  e.preventDefault();
-  rowNumber = refrenceToTd.parentNode.parentNode.rowIndex;
-  const id = refrenceToTd.parentNode.parentNode.cells[0].innerHTML;
-
-  let tableCells = document.getElementById("table1").rows[rowNumber].cells;
-  tableCells[0].innerHTML = +id;
-  tableCells[1].innerHTML = document
-    .getElementById("name1")
-    .value.toLowerCase();
-  tableCells[2].innerHTML = document.getElementById("age1").value;
-  tableCells[3].innerHTML = document
-    .getElementById("city1")
-    .value.toLowerCase();
-  tableCells[4].innerHTML = document
-    .getElementById("state1")
-    .value.toLowerCase();
-  document.getElementById("form2").reset();
-
-  data.splice(rowNumber - 1, 1);
-
-  const name = tableCells[1].innerHTML;
-  const age = tableCells[2].innerHTML;
-  const city = tableCells[3].innerHTML;
-  const state = tableCells[4].innerHTML;
-
-  let obj = {
-    id: +id,
-    name,
-    age,
-    city,
-    state,
-  };
-  data.push(obj);
-  console.log("updated Object=", data);
-  getDateFromLocalStorage();
-}
-
 //Sorting
-function onSort(e) {
+function onSort(value, e) {
   e.preventDefault();
-
-  let specificField = document.getElementById("field").value;
+  let specificField = value;
+  j = j * -1;
   data.sort((a, b) => {
     if (a[specificField] < b[specificField]) {
-      return -1;
+      return -1 * j;
     }
     if (a[specificField] > b[specificField]) {
-      return 1;
+      return 1 * j;
     }
     return 0;
   });
@@ -140,7 +142,7 @@ function onSearch(e) {
   data.filter((x) => {
     if (
       x.name.includes(text.toLowerCase()) ||
-      x.age === +text ||
+      x.age.includes(text.toString()) ||
       x.city.includes(text.toLowerCase()) ||
       x.state.includes(text.toLowerCase())
     ) {

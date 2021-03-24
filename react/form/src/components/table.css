@@ -1,0 +1,21 @@
+table,
+td,
+tr,
+th {
+  border: 1px solid black;
+}
+.pageNo {
+  list-style: none;
+  display: flex;
+}
+
+.pageNo li {
+  margin: 0 10px;
+  padding: 0 9px;
+  border: 1px solid black;
+}
+.pageNo li:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+}

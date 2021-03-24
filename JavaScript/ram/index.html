@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form onSubmit="onFormSubmit(event)">
+            <label>Options:</label>
+            <select name="HTMl Tags" id="tags" required>
+                <option value="" disabled selected>Select</option>
+                <!-- <option type="button" value="button">button</option> -->
+                <option type="checkbox" value="checkbox">checkbox</option>
+                <option type="date" value="date">date</option>
+                <option type="email" value="email">email</option>
+                <option type="file" value="file">file</option>
+                <option type="number" value="number">number</option>
+                <option type="radio" value="radio">radio</option>
+                <!-- <option type="submit" value="submit">submit</option> -->
+                <option type="text" value="text">text</option>
+            </select>
+            <label>Number:</label>
+            <input type="number" placeholder="number of Times" id="number" required>
+            <label>position:</label>
+            <input type="number" placeholder="Position" id="position" required>
+            <button onclick="onAdd(event)">Add</button>
+            <button type="submit">Submit</button>
+        </form>
+        <button onclick="localStorage.clear()">Clear LocalStorage</button>
+    </div>
+
+    <div id="form">
+        <div></div>
+    </div>
+
+
+    <script src="./task1.js"></script>
+</body>
+
+</html>
