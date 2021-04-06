@@ -1,0 +1,17 @@
+.selected{
+    color: #3a5d9f;
+    padding: 40px 0;
+}
+.about h6{
+    color: #3a5d9f;
+    text-transform: capitalize;
+}
+.about img{
+    border-radius: 100px;
+    background-color: #fdcc07;
+    padding: 10px;
+}
+
+.about h6{
+    padding: 20px 0;
+}

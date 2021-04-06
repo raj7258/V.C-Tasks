@@ -1,0 +1,31 @@
+.stats-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #3a5d9f;
+  padding: 5px;
+}
+.stat {
+  min-width: 292px;
+  background-color: #7fa5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 8px auto;
+  padding: 23px 15px;
+  border-radius: 3px;
+}
+.stat p {
+  margin: 0;
+}
+
+.save-pokemon-btn {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  background-color: #fdcc07;
+  color: #3a5d9f;
+  font-size: 20px;
+  cursor: pointer;
+}
