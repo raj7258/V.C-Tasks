@@ -1,0 +1,32 @@
+.wrap {
+  display: flex;
+}
+.wrap p {
+  margin: 0;
+}
+.price {
+  display: flex;
+  margin-left: auto;
+}
+
+.price div {
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  width: 25px;
+  height: 25px;
+  margin-left: 20px;
+}
+.price i{
+    cursor: pointer;
+}
+
+.price p{
+    display: inline;
+    background-color: #007bff;
+    padding: 0 20px;
+    border-radius: 50px; 
+    color: white;
+    font-weight: 700;
+}

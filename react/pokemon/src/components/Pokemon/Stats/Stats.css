@@ -18,14 +18,7 @@
 }
 .stat p {
   margin: 0;
+  text-transform: uppercase;
 }
 
-.save-pokemon-btn {
-  width: 100%;
-  padding: 12px;
-  margin: 20px 0;
-  background-color: #fdcc07;
-  color: #3a5d9f;
-  font-size: 20px;
-  cursor: pointer;
-}
+

@@ -1,13 +1,10 @@
 import React from "react";
 import "./Stats.css";
+import PropTypes from "prop-types";
 
 class Stats extends React.Component {
-  onSave = () => {
-    this.props.onSave(this.props.data);
-  };
-
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.data === this.props.data.name) {
+    if (JSON.stringify(nextProps.data) === JSON.stringify(this.props.data)) {
       return false;
     }
     return true;
@@ -28,12 +25,13 @@ class Stats extends React.Component {
     return (
       <div>
         <div className="stats-div">{renderedList}</div>
-        <button className="save-pokemon-btn" onClick={this.onSave}>
-          Save Pokémon
-        </button>
       </div>
     );
   }
 }
+
+Stats.propTypes = {
+  data: PropTypes.object,
+};
 
 export default Stats;

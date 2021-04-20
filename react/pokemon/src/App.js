@@ -13,11 +13,25 @@ class App extends React.Component {
       savedPokemon: [],
       selectedPokemon: null,
       count: 0,
+      searchedObject: {},
     };
   }
 
+  containsObject = (obj, list) => {
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].name === obj.name) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   onSearch = (value) => {
-    if (value) {
+    if (value && this.state.searchedObject.name !== value.name) {
+      this.setState({
+        searchedObject: value,
+      });
       axios
         .get(value.url)
         .then((response) => {
@@ -32,19 +46,8 @@ class App extends React.Component {
   };
 
   onSave = (savedData) => {
-    function containsObject(obj, list) {
-      var i;
-      for (i = 0; i < list.length; i++) {
-        if (list[i].name === obj.name) {
-          return false;
-        }
-      }
-
-      return true;
-    }
-
     if (
-      containsObject(savedData, this.state.savedPokemon) &&
+      this.containsObject(savedData, this.state.savedPokemon) &&
       this.state.count < 6
     ) {
       let pokemons = this.state.savedPokemon;
@@ -57,19 +60,34 @@ class App extends React.Component {
     }
   };
 
+  onDelete = (value) => {
+    let savedPokemons = this.state.savedPokemon;
+    let newList = savedPokemons.filter((Pokemon) => {
+      return Pokemon.name !== value.name;
+    });
+    this.setState({
+      savedPokemon: newList,
+      count: this.state.count - 1,
+    });
+  };
+
   render() {
     console.log("App State", this.state);
+
     let pokemonData = this.state.selectedPokemon ? (
       <Pokemon
         selectedPokemon={this.state.selectedPokemon}
+        pokemonInSquad={this.state.savedPokemon}
         onSave={this.onSave}
       />
     ) : null;
 
-    let cards =
-      this.state.savedPokemon.length > 0 ? (
-        <SavedPokemon pokemons={this.state.savedPokemon} />
-      ) : null;
+    let cards = this.state.selectedPokemon ? (
+      <SavedPokemon
+        pokemons={this.state.savedPokemon}
+        onDelete={this.onDelete}
+      />
+    ) : null;
 
     return (
       <div className="main-div">

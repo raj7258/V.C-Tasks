@@ -1,6 +1,5 @@
 import React from "react";
-import { Typography } from '@material-ui/core';
-import './Header.css'
+import "./Header.css";
 
 class Header extends React.Component {
   render() {
@@ -12,7 +11,7 @@ class Header extends React.Component {
           width="220"
           height="80"
         />
-        <Typography variant="h3">Select a Pokémon</Typography>
+        <h3>Select a Pokémon</h3>
       </div>
     );
   }

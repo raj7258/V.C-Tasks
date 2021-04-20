@@ -1,46 +1,6 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import { Typography } from "@material-ui/core";
-
-const useStyles = makeStyles({
-  root: {
-    width: 164,
-    height: 250,
-    margin: "10px 3px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "35px 0",
-  },
-  cardDiv: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  heading: {
-    margin: 20,
-    color: "#3a5d9f",
-  },
-  pokemon: {
-    height: 100,
-    width: 100,
-    borderRadius: 100,
-    backgroundColor: "white",
-    padding: 10,
-  },
-  name: {
-    margin: 10,
-    textTransform: "capitalize",
-  },
-  move: {
-    backgroundColor: "grey",
-    color: "white",
-    borderRadius: "10px",
-    padding: "4px 8px",
-    textTransform: "capitalize",
-  },
-});
+import PropTypes from "prop-types";
+import "./SavedPokemon.css";
 
 let backColor = [
   "#6f35fc",
@@ -51,37 +11,79 @@ let backColor = [
   "rgba(121, 97, 242, 1)",
 ];
 
-export default function SavedPokemon(props) {
-  const classes = useStyles();
-  let cards = props.pokemons.map((pokemon, index) => {
-    return (
-      <div key={index}>
-        <Card
-          className={classes.root}
-          style={{ backgroundColor: backColor[index] }}
-        >
-          <CardContent>
-            <img
-              src={pokemon.sprites.front_default}
-              alt="Pokemon"
-              className={classes.pokemon}
-            />
-            <Typography className={classes.name}>{pokemon.name}</Typography>
-            <Typography className={classes.move}>
-              {pokemon.moves[0].move.name}
-            </Typography>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  });
-  return (
-    <>
-      <Typography variant="h6" className={classes.heading}>
-        Selected Squad
-      </Typography>
+class SavedPokemon extends React.Component {
+  onDelete = (event, pokemon) => {
+    this.props.onDelete(pokemon);
+  };
 
-      <div className={classes.cardDiv}>{cards}</div>
-    </>
-  );
+  emptyCards = () => {
+    let x = [];
+    for (let i = 0; i < 6 - this.props.pokemons.length; i++) {
+      x.push(
+        <div key={i}>
+          <div
+            className="root"
+            style={{ backgroundColor: "#c1c8ca", color: "#3a5d9f" }}
+          >
+            <div>
+              <p className="empty">Empty</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return x;
+  };
+
+  render() {
+    console.log("render", this.props.pokemons);
+    let cards = this.props.pokemons.map((pokemon, index) => {
+      return (
+        <div key={index}>
+          <div className="root" style={{ backgroundColor: backColor[index] }}>
+            <div
+              className="delete-button"
+              onClick={(event) => this.onDelete(event, pokemon)}
+            >
+              <i className="fa fa-times"></i>
+            </div>
+            <div>
+              <img
+                src={pokemon.sprites.front_default}
+                alt="Pokemon"
+                className="pokemon"
+              />
+              <p className="name">{pokemon.name}</p>
+              <div className="move">{pokemon.moves[0].move.name}</div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <>
+        <h6 className="heading">Selected Squad</h6>
+
+        <div className="cardDiv">
+          {this.props.pokemons.length > 0 ? cards : null}
+          {this.emptyCards()}
+        </div>
+      </>
+    );
+  }
 }
+
+SavedPokemon.propTypes = {
+  pokemons: PropTypes.array,
+  ondelete: PropTypes.func,
+};
+
+SavedPokemon.defaultProps = {
+  pokemons: [],
+  onDelete: function () {
+    console.log("Default Delete Function");
+  },
+};
+
+export default SavedPokemon;
