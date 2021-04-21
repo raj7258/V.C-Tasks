@@ -1,0 +1,58 @@
+.root {
+  width: 164px;
+  height: 250px;
+  margin: 10px 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  border: 3px;
+  border-radius: 8px;
+  position: relative;
+}
+.cardDiv {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.heading {
+  margin: 25px;
+  color: #3a5d9f;
+  font-size: 25px;
+}
+.pokemon {
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  background-color: white;
+  padding: 10px;
+}
+.name {
+  margin: 12px;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: white;
+  font-weight: 600;
+}
+.move {
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+  padding: 4px 8px;
+  text-transform: capitalize;
+}
+.empty {
+  margin: 0;
+  font-size: 20px;
+}
+.delete-button{
+  position: absolute;
+  top: 2.5%;
+  right: 5%;
+  background-color: #ccc;
+  border-radius: 35px;
+  cursor: pointer;
+}
+.delete-button i {
+  margin: 0 3px;
+}

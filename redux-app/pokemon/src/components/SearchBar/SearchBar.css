@@ -1,0 +1,57 @@
+.input {
+  width: 100%;
+  border: 1px solid #c1c8ca;
+  border-radius: 3px;
+  color: inherit;
+  font-size: inherit;
+  height: 44px;
+  font-size: 20px;
+  padding-inline: 8px;
+}
+.pokemon-list {
+  overflow: auto;
+  padding: 0;
+  height: 100px;
+  list-style: none;
+  text-align: left;
+  font-size: 20px;
+}
+
+.pokemon-list li {
+  cursor: pointer;
+  margin: 7px 0;
+}
+
+.pokemon-list li div {
+  background-color: #3a5d9f;
+  display: inline-block;
+  border-radius: 22px;
+  padding: 2px 13px;
+  color: white;
+}
+.cross-icon {
+  color: black;
+}
+
+.search-label {
+  position: relative;
+}
+.clear {
+  position: absolute;
+  top: -13%;
+  right: 5%;
+  font-size: 18px;
+  cursor: pointer;
+}
+.open {
+  position: absolute;
+  top: -45%;
+  right: 1.5%;
+  cursor: pointer;
+}
+.active {
+  border: 4px solid red;
+}
+li:hover div {
+  background-color: rgb(111, 53, 252);
+}

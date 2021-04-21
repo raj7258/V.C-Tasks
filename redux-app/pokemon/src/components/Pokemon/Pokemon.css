@@ -1,0 +1,42 @@
+.selected {
+  color: #3a5d9f;
+  margin: 0;
+  font-size: 25px;
+  padding: 30px 0;
+}
+.about h6 {
+  color: #3a5d9f;
+  text-transform: capitalize;
+  font-size: 25px;
+  margin: 0;
+  padding: 20px 0;
+}
+.about img {
+  border-radius: 100px;
+  background-color: #fdcc07;
+  padding: 10px;
+}
+
+.about h6 {
+  padding: 20px 0;
+}
+
+.save-pokemon-btn-enable {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  background-color: #fdcc07;
+  color: #3a5d9f;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.save-pokemon-btn-disable {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  background-color: #ccc;
+  color: #3a5d9f;
+  font-size: 20px;
+  cursor: pointer;
+}

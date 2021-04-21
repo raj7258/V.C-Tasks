@@ -1,0 +1,24 @@
+.stats-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #3a5d9f;
+  padding: 5px;
+}
+.stat {
+  min-width: 292px;
+  background-color: #7fa5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 8px auto;
+  padding: 23px 15px;
+  border-radius: 3px;
+}
+.stat p {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+
