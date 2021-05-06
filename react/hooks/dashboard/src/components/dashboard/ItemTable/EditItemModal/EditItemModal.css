@@ -1,0 +1,19 @@
+.edit-item {
+    text-align: center;
+  }
+  .edit-item form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 50px auto;
+  }
+  
+  .edit-item input {
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  .edit-item button {
+    padding: 10px 0;
+    font-size: 20px;
+  }

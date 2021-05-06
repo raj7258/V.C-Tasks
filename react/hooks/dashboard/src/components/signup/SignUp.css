@@ -1,0 +1,22 @@
+.SignUp-div {
+  text-align: center;
+}
+.SignUp-div form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 50px auto;
+}
+
+.SignUp-div input{
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.SignUp-div a{
+    margin-top: 10px
+}
+.SignUp-div button{
+  padding: 10px 0;
+  font-size: 20px;
+}

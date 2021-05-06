@@ -1,0 +1,20 @@
+.add-item {
+    text-align: center;
+  }
+  .add-item form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 50px auto;
+  }
+  
+  .add-item input {
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  .add-item button {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+  

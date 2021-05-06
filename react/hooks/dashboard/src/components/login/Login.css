@@ -1,0 +1,27 @@
+.login-div {
+  text-align: center;
+}
+.login-div form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 50px auto;
+}
+
+.login-div input {
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.login-div a {
+  margin-top: 10px;
+}
+.login-div button {
+  padding: 10px 0;
+  font-size: 20px;
+}
+.error-message {
+  margin-bottom: 5px;
+  color: red;
+  font-size: 20px;
+}

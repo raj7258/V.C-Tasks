@@ -1,0 +1,43 @@
+table,
+td,
+tr,
+th {
+  border: 1px solid black;
+}
+td img {
+  cursor: pointer;
+}
+.itemTable {
+  text-align: center;
+  margin-top: 100px;
+}
+.itemTable table {
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+.actions button {
+  margin: 5px;
+}
+.pageNo {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 50%;
+  margin: 40px auto;
+}
+
+.pageNo li {
+  margin: 0 10px;
+  padding: 0 9px;
+  border: 1px solid black;
+}
+.pageNo li:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+}

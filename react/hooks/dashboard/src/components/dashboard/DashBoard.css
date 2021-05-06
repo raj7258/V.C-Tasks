@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+.header button {
+    margin-left: auto;
+}
+.header h2{
+    margin: 0;
+}
