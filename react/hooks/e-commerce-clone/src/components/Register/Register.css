@@ -1,0 +1,20 @@
+.register-div {
+  text-align: center;
+  margin: 0px auto;
+  width: 50%;
+}
+
+.register-div h4 {
+  padding: 35px 0;
+  padding-bottom: 30px;
+}
+.Login-link {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+.Login-link a {
+  font-weight: bolder;
+}
+.show-password-icon {
+  cursor: pointer;
+}
