@@ -8,16 +8,24 @@ import VerifyOtp from "./components/ForgetPassword/VerifyOtp/VerifyOtp";
 import ResetPassword from "./components/ForgetPassword/ResetPassword/ResetPassword";
 import Vendor from "./components/Vendor/Vendor";
 import Customer from "./components/Customer/Customer";
+import VerifyEmail from "./components/VerifyEmail/VerifyEmail";
+import Notification from "./components/FormComponents/Notification/Notification";
 
 function App() {
   return (
     <div className="App">
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Notification />
+      </div>
       <Switch>
         <Route exact path="/customer">
           <Customer />
         </Route>
-        <Route exact path="/vendor">
+        <Route  path="/vendor">
           <Vendor />
+        </Route>
+        <Route exact path="/user/verify/:id">
+          <VerifyEmail />
         </Route>
         <Route exact path="/resetpassword">
           <ResetPassword />

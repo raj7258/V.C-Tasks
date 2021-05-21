@@ -18,6 +18,8 @@ import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import axios from "axios";
 import Route from "../FormComponents/Route/Route";
 import { REGISTER_URL } from "../../Api/ApiRoutes";
+import { useDispatch } from "react-redux";
+import { openNotification } from "../FormComponents/Notification/redux/actions/actions";
 
 const Register = () => {
   const [userData, setUserData] = useState({
@@ -44,6 +46,7 @@ const Register = () => {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   let userNameRegex = /^(?=^.{3,10}$)[a-zA-Z0-9]+$/;
   const history = useHistory();
+  const dispatch = useDispatch();
   const useStyle = makeStyles({
     inputs: {
       width: "60%",
@@ -259,22 +262,43 @@ const Register = () => {
       axios
         .post(REGISTER_URL, formData)
         .then((response) => {
-          history.push("/");
+          console.log(response);
+          let { user, token } = response.data;
+          localStorage.setItem("token", JSON.stringify(token));
+          history.push({
+            pathname: `/${user.userType}`,
+          });
+          dispatch(
+            openNotification({
+              text: "Registeration successful",
+              severity: "success",
+              show: true,
+            })
+          );
         })
         .catch((err) => {
-          let { message } = err.response.data;
-          if (message.includes("email")) {
-            setError({
-              ...error,
-              emailError: { helperText: message, errorStatus: true },
-            });
+          if (err.response) {
+            let { message } = err.response.data;
+            if (message.includes("email")) {
+              setError({
+                ...error,
+                emailError: { helperText: message, errorStatus: true },
+              });
+            } else {
+              setError({
+                ...error,
+                userNameError: { helperText: message, errorStatus: true },
+              });
+            }
           } else {
-            setError({
-              ...error,
-              userNameError: { helperText: message, errorStatus: true },
-            });
+            dispatch(
+              openNotification({
+                text: "Something Went Wrong",
+                severity: "error",
+                show: true,
+              })
+            );
           }
-          console.log("response", message);
         });
     }
   };

@@ -14,6 +14,11 @@ import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import axios from "axios";
 import Route from "../FormComponents/Route/Route";
 import { LOGIN_URL } from "../../Api/ApiRoutes";
+import LoginWithGoogle from "../GoogleLogin/GoogleLogin";
+import { openNotification } from "../FormComponents/Notification/redux/actions/actions";
+import { useDispatch } from "react-redux";
+import { setAuthToken } from "../redux/actions/actions";
+
 const Login = () => {
   const [userData, setUserData] = useState({
     email: "",
@@ -34,6 +39,7 @@ const Login = () => {
     },
   });
   let history = useHistory();
+  let dispatch = useDispatch();
   const handleChange = (event) => {
     const { value, name } = event.target;
     switch (name) {
@@ -94,19 +100,23 @@ const Login = () => {
         .then((res) => {
           console.log("res", res);
           let { user, token } = res.data;
-          localStorage.setItem("user", JSON.stringify(res.data));
+          dispatch(setAuthToken(token));
+          localStorage.setItem("token", JSON.stringify(token));
           history.push({
             pathname: `/${user.userType}`,
-            state: {
-              user,
-              token,
-            },
           });
+          dispatch(
+            openNotification({
+              text: "Login successful",
+              severity: "success",
+              show: true,
+            })
+          );
         })
         .catch((err) => {
           console.log("err", err.response);
-          let { message } = err.response.data;
-          if (typeof message === "string")
+          if (err.response) {
+            let { message } = err.response.data;
             if (message.includes("password")) {
               setError({
                 ...error,
@@ -118,6 +128,15 @@ const Login = () => {
                 emailError: { helperText: message, errorStatus: true },
               });
             }
+          } else {
+            dispatch(
+              openNotification({
+                text: "Something Went Wrong",
+                severity: "error",
+                show: true,
+              })
+            );
+          }
         });
     }
   };
@@ -131,72 +150,75 @@ const Login = () => {
   let { emailError, passwordError } = error;
   localStorage.clear();
   return (
-    <div className="login-div">
-      <Heading>Login Page</Heading>
-      <form onSubmit={handleSubmit} className="login-form">
-        <FormControl className={classes.formControl}>
-          <TextField
-            type="text"
-            label="Username/Email"
-            variant="outlined"
-            name="email"
-            value={email ? email : userName}
-            onChange={handleChange}
-            error={emailError.errorStatus}
-            helperText={emailError.helperText}
-            required
-          ></TextField>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <TextField
-            type={showPassword ? "text" : "password"}
-            label="password"
-            variant="outlined"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            error={passwordError.errorStatus}
-            helperText={passwordError.helperText}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  {showPassword ? (
-                    <div
-                      onClick={handleShowPassword}
-                      className="show-password-icon"
-                    >
-                      <VisibilityOffIcon />
-                    </div>
-                  ) : (
-                    <div
-                      onClick={handleShowPassword}
-                      className="show-password-icon"
-                    >
-                      <VisibilityIcon />
-                    </div>
-                  )}
-                </InputAdornment>
-              ),
-            }}
-            required
-          ></TextField>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </FormControl>
+    <>
+      <div className="login-div">
+        <Heading>Login Page</Heading>
+        <form onSubmit={handleSubmit} className="login-form">
+          <FormControl className={classes.formControl}>
+            <TextField
+              type="text"
+              label="Username/Email"
+              variant="outlined"
+              name="email"
+              value={email ? email : userName}
+              onChange={handleChange}
+              error={emailError.errorStatus}
+              helperText={emailError.helperText}
+              required
+            ></TextField>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <TextField
+              type={showPassword ? "text" : "password"}
+              label="password"
+              variant="outlined"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              error={passwordError.errorStatus}
+              helperText={passwordError.helperText}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {showPassword ? (
+                      <div
+                        onClick={handleShowPassword}
+                        className="show-password-icon"
+                      >
+                        <VisibilityOffIcon />
+                      </div>
+                    ) : (
+                      <div
+                        onClick={handleShowPassword}
+                        className="show-password-icon"
+                      >
+                        <VisibilityIcon />
+                      </div>
+                    )}
+                  </InputAdornment>
+                ),
+              }}
+              required
+            ></TextField>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              type="submit"
+            >
+              Submit
+            </Button>
+          </FormControl>
+        </form>
+        <LoginWithGoogle />
         <Route info="Don't have Account?" text="SignUp" path="/register" />
         <Link to="/forgetpassword" className="forget-Password">
           Forgot Password?
         </Link>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 
