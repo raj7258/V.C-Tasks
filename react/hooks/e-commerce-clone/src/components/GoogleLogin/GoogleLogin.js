@@ -12,7 +12,7 @@ import {
 import Modal from "@material-ui/core/Modal";
 import axios from "axios";
 import { IS_REGISTERED, GOOGLE_LOGIN_URL } from "../../Api/ApiRoutes";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { openNotification } from "../FormComponents/Notification/redux/actions/actions";
 import { useHistory } from "react-router-dom";
 import { gapi } from "gapi-script";
@@ -119,7 +119,6 @@ const LoginWithGoogle = () => {
 
   const onFailure = (error) => {
     console.log("error", error);
-    errorNotification();
   };
 
   const handleChange = (event) => {
@@ -165,6 +164,7 @@ const LoginWithGoogle = () => {
           console.log("error", error.response);
         });
     }
+    // eslint-disable-next-line
   }, [userType]);
 
   const handleClose = () => {
@@ -218,7 +218,7 @@ const LoginWithGoogle = () => {
       <GoogleLogin
         className="Google-login-btn"
         clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        buttonText="Log in with Google"
+        buttonText="Continue with Google"
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={"single_host_origin"}

@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import AddProduct from "./AddProduct/AddProduct";
 import NavBar from "../Navbar/NavBar";
 import { Redirect } from "react-router-dom";
@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUser, setAuthToken } from "../redux/actions/actions";
 import { openNotification } from "../FormComponents/Notification/redux/actions/actions";
 import Profile from "../Profile/Profile";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Switch, useRouteMatch, useHistory } from "react-router-dom";
 import Home from "./Home/Home";
 
 const Vendor = () => {
@@ -17,9 +17,10 @@ const Vendor = () => {
   // const xyz = useSelector((state) => state.userReducer);
   // console.log(xyz);
   let dispatch = useDispatch();
+  const history = useHistory();
   let { path } = useRouteMatch();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     axios
       .get(GET_VENDOR_URL, {
         headers: {
@@ -34,15 +35,18 @@ const Vendor = () => {
       })
       .catch((err) => {
         console.log("error", err.response);
+        let { message } = err.response.data;
         dispatch(
           openNotification({
-            text: "Something Went Wrong",
+            text: message,
             severity: "error",
             show: true,
           })
         );
+        history.push("/");
       });
-  }, [token, dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   if (!token) {
     return <Redirect to="/" />;

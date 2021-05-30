@@ -11,17 +11,21 @@ import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import { useSelector, useDispatch } from "react-redux";
 import { openNotification } from "../../FormComponents/Notification/redux/actions/actions";
 import { setUser, setAuthToken } from "../../redux/actions/actions";
-import { EDIT_PROFILE_URL } from "../../../Api/ApiRoutes";
+import {
+  EDIT_PROFILE_URL,
+  EMAIL_VERIFICATION_URL,
+} from "../../../Api/ApiRoutes";
+import ChangePassword from "../ChangePassword/ChangePassword";
 
 const useStyle = makeStyles({
   inputs: {
     width: "50%",
-    height: "10%",
+    height: "7%",
     margin: "0 auto",
   },
   formControl: {
     width: "60%",
-    marginBottom: "30px",
+    marginBottom: "20px",
     textAlign: "left",
   },
   successIcon: {
@@ -170,6 +174,25 @@ export default function EditForm() {
 
   const handleResend = () => {
     if (!userData.verified) {
+      axios
+        .get(EMAIL_VERIFICATION_URL, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          dispatch(
+            openNotification({
+              text: "Email Verification Link Sent!",
+              severity: "success",
+              show: true,
+            })
+          );
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
     } else {
       dispatch(
         openNotification({
@@ -215,7 +238,7 @@ export default function EditForm() {
   let { name, email, userName, userType, verified, isSocialLogin } = userData;
   let { nameError, emailError, userNameError } = error;
   return (
-    <div style={{ margin: "35px auto" }}>
+    <div style={{ margin: "20px auto" }}>
       <form onSubmit={handleSubmit}>
         <FormControl className={classes.formControl}>
           <TextField
@@ -334,19 +357,7 @@ export default function EditForm() {
           </Button>
         </FormControl>
       ) : null}
-      {isSocialLogin ? null : (
-        <FormControl className={classes.formControl}>
-          <Button
-            type="button"
-            style={{ width: "50%", margin: "0 auto" }}
-            variant="outlined"
-            color="primary"
-            size="large"
-          >
-            Change Password
-          </Button>
-        </FormControl>
-      )}
+      {isSocialLogin ? null : <ChangePassword />}
     </div>
   );
 }
